@@ -90,7 +90,7 @@ def parse_data(data):
 
 POSITIVE_WORDS_DIR = os.path.join('feature_words', 'positive-words.txt')
 NEGATIVE_WORDS_DIR = os.path.join('feature_words', 'negative-words.txt')
-CRAWLED_DATA_DIR = 'crawled_data.csv'
+CRAWLED_DATA_DIR = os.path.join('crawled_data.csv')
 POSITIVE = 'positive'
 NEGATIVE = 'negative'
 UNKNOWN = 'unknown'
