@@ -101,6 +101,24 @@ NEGATIVE_WORDS = set(words2lists(NEGATIVE_WORDS_DIR))
 
 if __name__ == "__main__":
     results = []
+    count_pos = 0
+    count_neg = 0
+    count_unkn = 0
+    count_both = 0
     data = csv2list(CRAWLED_DATA_DIR)
     results = parse_data(data)
-    print(results)
+
+    for result in results:
+        if(result[1] is 'positive'):
+            count_pos += 1
+        elif(result[1] is 'negative'):
+            count_neg += 1
+        elif(result[1] is 'unknown'):
+            count_unkn += 1
+        elif(result[1] is 'both'):
+            count_both += 1
+
+    print("positive tweets: {:0.3f}% ".format(count_pos/len(results)*100))
+    print("negative tweets: {:0.3f}% ".format(count_neg/len(results)*100))
+    print("unknown tweets: {:0.3f}% ".format(count_unkn/len(results)*100))
+    print("both tweets: {:0.3f}% ".format(count_both/len(results)*100))
